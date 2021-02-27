@@ -7,39 +7,39 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style-form.css">
-    <title>Đăng Ký Người Dùng</title>
+    <title>Đăng Ký </title>
 </head>
 <body>
 
     <div class="main">
          <form action="" method="post" class="form" id="form-1">
-              <h3 class="heading text-center">Thành Viên Đăng Ký</h3>
-              <p class="desc text-center">Cùng nhau học lập trình tại DOBEETEAM</p>
+            <h3 class="heading text-center">Thành Viên Đăng Ký</h3>
+            <p class="desc text-center">Cùng nhau tham gia cộng đồng DOBEETEAM</p>
+            
+            <div class="spacer"></div>
 
-              <div class="spacer"></div>
+            <div class="form-group">
+                <label for="fullname" class="form-label">Tên Đầy Đủ</label>
+                <input id="fullname" name="fullname" type="text" placeholder="VD: Andy Ngô" class="form-control">
+                <span class="form-message valid"></span>
+            </div>
 
-              <div class="form-group">
-                  <label for="fullname" class="form-label">Tên Đầy Đủ</label>
-                  <input id="fullname" name="fullname" type="text" placeholder="VD: Andy Ngô">
-                  <span class="form-message"></span>
-              </div>
-
-              <div class="form-group">
+            <div class="form-group">
                 <label for="email" class="form-label">Email</label>
-                <input id="email" name="email"  type="text" placeholder="VD: gmail@nbdong.com">
-                <span class="form-message"></span>
+                <input id="email" name="email"  type="text" placeholder="VD: example@domain.com" class="form-control">
+                <span class="form-message valid"></span>
             </div>
 
             <div class="form-group">
                 <label for="password" class="form-label">Mật Khẩu</label>
-                <input id="password" name="password" type="text" placeholder="Nhập mật khẩu">
-                <span class="form-message"></span>
+                <input id="password" name="password" type="password" placeholder="Nhập mật khẩu" class="form-control">
+                <span class="form-message valid"></span>
             </div>
 
             <div class="form-group">
                 <label for="password_confirmation" class="form-label">Nhập lại mật khẩu</label>
-                <input id="password_confirmation" name="password_confirmation" placeholder="Nhập lại mật khẩu" type="text">
-                <span class="form-message"></span>
+                <input id="password_confirmation" name="password_confirmation" placeholder="Nhập lại mật khẩu" type="password" class="form-control">
+                <span class="form-message valid"></span>
             </div>
 
             <button class="form-submit">Đăng Ký</button>
@@ -47,6 +47,29 @@
     </div>
 
     <script src="./validator.js"></script>
+    <script>
+
+        //Mong muốn của chúng ta khi sử dụng thư viện này trong tương lai
+        Validator({
+            form: '#form-1',
+            errorSelector: '.form-message',
+            rules: [
+                Validator.isRequired('#fullname', 'Vui lòng nhập tên đầy đủ của bạn'),
+                Validator.isRequired('#email'),
+                Validator.isEmail('#email'),
+                Validator.minLength('#password', 6),
+                Validator.isRequired('#password_confirmation'),
+                Validator.isConfirmed('#password_confirmation', function () {
+                    return document.querySelector('#form-1 #password').value;
+                }, 'Mật khẩu nhập lại không chính xác !')
+            ],
+            onSubmit: function (data) {
+                // Call API
+                console.log(data);
+            }
+        });
+
+    </script>
     
 </body>
 </html>

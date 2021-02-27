@@ -14,10 +14,11 @@ html {
     text-align: center !important;
 }
 
+
 /* Main */
 .main {
     text-align: center;
-    margin-top: 100px;
+    margin-top: 80px;
 }
 
 .form {
@@ -40,6 +41,7 @@ html {
 .form .desc {
     color: #636d77;
     font-size: 14px;
+    font-weight: lighter;
 }
 
 .form .spacer {
@@ -59,13 +61,33 @@ html {
     color: #333;
     padding: 0 0 6px;
     text-align: left;
+    line-height: 1.6rem;
 }
 
-.form input[type='text'] {
-    padding: 10px 12px;
-    border: 1px solid #ccc;
+.form-control {
+    height: 40px;
+    padding: 8px 12px;
+    border: 1px solid #b3b3b3;
     border-radius: 3px;
     outline: none;
+    font-size: 14px;
+  }
+  
+.form-control:hover {
+    border-color: #1dbfaf;
+}
+
+.form-group.valid .form-control {
+    border-color: #f33a58;
+}
+  
+.form-group.valid .form-message {
+    color: #f33a58;
+}
+
+.valid {
+    font-size: 1.2rem;
+    line-height: 1.6rem;
 }
 
 .form .form-message {
@@ -87,4 +109,5 @@ html {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    outline: none;
 }

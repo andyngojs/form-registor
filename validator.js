@@ -1,12 +1,20 @@
 
 // Đối tượng  `Validatior`
 function Validator(option) {
+    function getParent(element, selector) {
+        while (element.parentElement) {
+            if (element.parentElement.matches(selector)) {
+                return element.parentElement;
+            }
+            element = element.parentElement;
+        }
+    }
 
     var selectorRules = {};
 
     // Hàm thực hiện validate
     function validate (inputElement, rule) {
-        var errorElement = inputElement.parentElement.querySelector(option.errorSelector);
+        var errorElement = getParent(inputElement, option.formGroupSelector).querySelector(option.errorSelector);
         var errorMessage;
 
             // Lấy ra các rule của selectoe
@@ -21,10 +29,10 @@ function Validator(option) {
 
             if (errorMessage) {
                 errorElement.innerText = errorMessage;
-                inputElement.parentElement.classList.add('valid');
+                getParent(inputElement, option.formGroupSelector).classList.add('valid');
             } else {  
                 errorElement.innerText = '';
-                inputElement.parentElement.classList.remove('valid');
+                getParent(inputElement, option.formGroupSelector).classList.remove('valid');
             }
 
             return !errorMessage;
@@ -54,7 +62,8 @@ function Validator(option) {
                 if (typeof option.onSubmit === 'function') {
                     var enableInputs = formElement.querySelectorAll('[name]:not([disable])');
                     var formValues = Array.from(enableInputs).reduce(function (value, input) {
-                        return (value[input.name] = input.value) && value;
+                        value[input.name] = input.value ;
+                        return value;
                     }, {});
                     option.onSubmit(formValues);
                 }
@@ -88,9 +97,9 @@ function Validator(option) {
 
                 // Xử lý mỗi khi người dùng nhập vào input
                 inputElement.oninput = function () {
-                    var errorElement = inputElement.parentElement.querySelector(option.errorSelector);
+                    var errorElement = getParent(inputElement, option.formGroupSelector).querySelector(option.errorSelector);
                     errorElement.innerText = '';
-                    inputElement.parentElement.classList.remove('valid');
+                    getParent(inputElement, option.formGroupSelector).classList.remove('valid');
                 }
             }
         });

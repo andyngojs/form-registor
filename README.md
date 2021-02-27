@@ -1,6 +1,8 @@
-# FORM REGISTER VALIDATION EXAMPLE 
+# FORM VALIDATION LIBRARY
 
-# Exercise number 1 - JavaScript 
+# Building Library with JavaScript
+
+ Exercise number 1 - JavaScript 
 
 Author: ANDY_NGO
 
@@ -21,8 +23,7 @@ Practise with HTML DOM
 
 Example Code validate an email: 
 
-+ function ValidateEmail(mail) 
-+ {
++ function ValidateEmail(mail) {
 +  if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(myForm.emailAddr.value))
 +   {
 +     return (true)

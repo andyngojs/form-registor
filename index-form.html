@@ -4,13 +4,49 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/style-form.css">
     <title>Đăng Ký Người Dùng</title>
 </head>
 <body>
 
     <div class="main">
+         <form action="" method="post" class="form" id="form-1">
+              <h3 class="heading text-center">Thành Viên Đăng Ký</h3>
+              <p class="desc text-center">Cùng nhau học lập trình tại DOBEETEAM</p>
 
+              <div class="spacer"></div>
+
+              <div class="form-group">
+                  <label for="fullname" class="form-label">Tên Đầy Đủ</label>
+                  <input id="fullname" name="fullname" type="text" placeholder="VD: Andy Ngô">
+                  <span class="form-message"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="email" class="form-label">Email</label>
+                <input id="email" name="email"  type="text" placeholder="VD: gmail@nbdong.com">
+                <span class="form-message"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="password" class="form-label">Mật Khẩu</label>
+                <input id="password" name="password" type="text" placeholder="Nhập mật khẩu">
+                <span class="form-message"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="password_confirmation" class="form-label">Nhập lại mật khẩu</label>
+                <input id="password_confirmation" name="password_confirmation" placeholder="Nhập lại mật khẩu" type="text">
+                <span class="form-message"></span>
+            </div>
+
+            <button class="form-submit">Đăng Ký</button>
+         </form>
     </div>
+
+    <script src="./validator.js"></script>
     
 </body>
 </html>

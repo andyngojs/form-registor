@@ -1,2 +1,3 @@
-# form-register
-form validation cách 2
+# THƯ VIỆN FORM VALIDATION  2
+
+author: ANDY_NGO

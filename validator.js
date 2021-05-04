@@ -1,4 +1,4 @@
-
+// Author: AndyNgoJs - fb.com/100006806881094
 // Đối tượng  `Validatior`
 function Validator(option) {
     function getParent(element, selector) {
